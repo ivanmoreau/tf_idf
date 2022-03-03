@@ -1,0 +1,6 @@
+resolver: lts-17.2
+extra-deps:
+  - git: git@github.com:ivanmoreau/prep_textos.git
+    commit: 018805c34cd791b7b77f04217c3f2c0edbca2785
+  - git: git@github.com:ivanmoreau/boolean_model.git
+    commit: c4dac9e6c0e286e9e54b8cb854fe930e7b1a2bc5
