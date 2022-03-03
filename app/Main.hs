@@ -15,7 +15,7 @@ See README for more info
 
 module Main (main) where
 
-import           TFIDF (someFunc, genMatrix, search)
+import           TFIDF (genMatrix, search)
 import qualified Data.ByteString as BS
 import           Data.List
 import qualified Data.Map as Dm

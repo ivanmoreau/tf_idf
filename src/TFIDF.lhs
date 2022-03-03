@@ -1,6 +1,6 @@
 \section{TF/IDF}
 
-Esta sección es Literate Haskell. EL mmimso código es parte del ejecutable y 
+Esta sección es Literate Haskell. El mismo código es parte del ejecutable y 
 parte del documento.
 
 Licencia:
@@ -19,10 +19,7 @@ Boilerplate:
 \begin{code}
 {-# LANGUAGE OverloadedStrings #-}
 
-module TFIDF
-  ( someFunc, genMatrix, search
-  )
-where
+module TFIDF ( genMatrix, search ) where
 
 import           Data.List (delete, nub, elemIndices)
 import qualified Data.Map as Dm
@@ -30,7 +27,6 @@ import           Data.Map (Map, fromList, insert, (!))
 import           Data.Serialize.Text ()
 import           Data.Text (Text, pack, replace, splitOn)
 import           Query
-import Debug.Trace
 
 type MatrixW = Map Text (Map Int Double)
 \end{code}
@@ -94,7 +90,6 @@ idf :: Text -- Termino.
 idf t m = let n = findtex t m in
   logBase 2.0 $ (fromIntegral $ Prelude.length m) / (fromIntegral n)
 
-
 tfidf :: Text -> Text -> [Text] -> Double
 tfidf term line lines_ = (tf term line) * (idf term lines_) 
 \end{code}
@@ -155,10 +150,4 @@ Se realiza una consulta con una Query:
 \begin{code}
 search :: Query -> MatrixW -> [(Int, Double)]
 search q m = pw q (Dm.size (snd (Dm.elemAt 0 m))) m
-\end{code}
-
-\begin{code}
--- Este código no importa :) 
-someFunc :: IO ()
-someFunc = putStrLn ("someFunc" :: String)
 \end{code}
